@@ -1,0 +1,49 @@
+製品管理ソフト
+システム要件
+
+*** DB ***
+# Productsテーブル
+ID      int             --primary  ID（increment）
+name    varchar(50)                 名前
+type_id int             --foreinkey 種別  
+        1(food),2(metal),3(chemistry),4(machine),5(fiber),6(other)
+        ※HTML Formでは、select選択型
+price   int                         価格
+
+# Typesテーブル
+ID      int             --primary   ID(increment)
+name    varchar(255)                種別名
+
+*** Model ***
+Product         Productsテーブルに対応
+
+Type            Typesテーブルに対応             
+
+*** View ***
+CRUD操作
+
+#　画面構成
+index.blade.php
+製品一覧を表示
+
+create.blade.php
+新規製品登録
+
+### 確認画面の表示
+
+### Validation
+name    必須 5文字以上　ユニーク
+type    必須
+price   1以上
+
+edit.blade.php
+製品情報更新
+
+show.blade.php
+製品画面表示
+
+*** Conttoller ***
+ProductController
+CRUD操作関連のルーティングを実装(--resouce)
+
+※TypeControllerは工数の関係から、今回は作成しないものとする。
